@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResQ - Emergency Ambulance Service</title>
+    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Splash Screen -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="logo-container">
+            <h1 class="logo">ResQ</h1>
+            <div class="logo-subtitle">Emergency Response</div>
+        </div>
+    </div>
+    <div id="app">
+        <!-- Home Screen -->
+        <div id="home-screen" class="screen active">
+            <header>
+                <h1>ResQ</h1>
+                <div class="user-info">
+                    <span id="user-location">Locating...</span>
+                    <button id="refresh-location" class="refresh-btn" title="Refresh Location">🔄</button>
+                </div>
+            </header>
+            
+            <main>
+                <div class="emergency-section">
+                    <button id="start-emergency-btn" class="emergency-btn">
+                        <span class="btn-icon">EMERGENCY</span>
+                        <span class="btn-text">Start Emergency</span>
+                    </button>
+                </div>
+                
+                <div class="map-container">
+                    <div id="map"></div>
+                    <div class="location-indicator">
+                        <span class="pulse"></span>
+                        <span>Your Location</span>
+                    </div>
+                </div>
+                
+                <!-- Hospital Information Section -->
+                <div class="hospital-section">
+                    <h3>Nearby Hospitals</h3>
+                    <div class="priority-selector">
+                        <label for="priority-level">Select Priority Level:</label>
+                        <select id="priority-level">
+                            <option value="Normal">Normal</option>
+                            <option value="High">High</option>
+                            <option value="Critical">Critical</option>
+                        </select>
+                    </div>
+                    <div id="hospital-list">
+                        <!-- Hospital information will be populated by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="status-section">
+                    <div class="status-card">
+                        <h3>Emergency Status</h3>
+                        <p id="status-text">Ready to respond</p>
+                        <div class="priority-level">
+                            <span>Priority Level:</span>
+                            <span id="priority-indicator">Normal</span>
+                        </div>
+                    </div>
+                    
+                    <div id="recent-updates" class="recent-updates">
+                        <h3>Recent Updates</h3>
+                        <div id="home-status-updates"></div>
+                    </div>
+                    
+                    <div class="sos-section">
+                        <button id="sos-btn" class="sos-btn">
+                            <span class="sos-icon">SOS</span>
+                            <span>SOS Alert</span>
+                        </button>
+                    </div>
+                </div>
+            </main>
+            
+            <nav>
+                <ul>
+                    <li class="nav-item active"><a href="#" data-screen="home">🏠 Home</a></li>
+                    <li class="nav-item"><a href="#" data-screen="tracking">📍 Tracking</a></li>
+                    <li class="nav-item"><a href="#" data-screen="status">📊 Status</a></li>
+                    <li class="nav-item"><a href="#" data-screen="settings">⚙️ Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <!-- Tracking Screen -->
+        <div id="tracking-screen" class="screen">
+            <header>
+                <h1>Live Tracking</h1>
+                <button id="back-to-home" class="back-btn">← Back</button>
+            </header>
+            
+            <main>
+                <div class="tracking-map-container">
+                    <div id="tracking-map"></div>
+                </div>
+                
+                <div class="tracking-info">
+                    <div class="info-card">
+                        <h3>Ambulance Status</h3>
+                        <p>En route to hospital</p>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 65%"></div>
+                        </div>
+                        <p>Estimated arrival: 8 min</p>
+                    </div>
+                    
+                    <div class="nearby-police">
+                        <h3>Nearby Traffic Police</h3>
+                        <ul id="police-list">
+                            <li class="police-item">
+                                <span>Police Officer #A123</span>
+                                <span class="distance">0.5 km away</span>
+                            </li>
+                            <li class="police-item">
+                                <span>Police Officer #B456</span>
+                                <span class="distance">1.2 km away</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+        
+        <!-- Status Screen -->
+        <div id="status-screen" class="screen">
+            <header>
+                <h1>Emergency Status</h1>
+                <button id="back-to-home-status" class="back-btn">← Back</button>
+            </header>
+            
+            <main>
+                <div class="status-updates">
+                    <!-- Dynamic status updates will be added here by JavaScript -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="src/js/app.js"></script>
+</body>
+</html>

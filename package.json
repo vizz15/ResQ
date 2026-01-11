@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "resq-ambulance-app",
+  "version": "1.0.0",
+  "description": "ResQ - Emergency Ambulance Mobile App Interface",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ambulance",
+    "emergency",
+    "mobile-app",
+    "resq",
+    "healthcare",
+    "tracking"
+  ],
+  "author": "ResQ Development Team",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^14.2.0"
+  }
+}
